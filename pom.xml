@@ -9,6 +9,31 @@
     <groupId>com.github.darkroomdevs</groupId>
     <artifactId>CheckDigitValidator</artifactId>
     <version>0.1.0</version>
+    <packaging>jar</packaging>
+
+    <name>CheckDigitValidator</name>
+    <description>A check digit validator lib</description>
+    <url>https://github.com/darkroomdevs/CheckDigitValidator</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/darkroomdevs/CheckDigitValidator/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <organization>Darkroom Devs</organization>
+            <organizationUrl>https://github.com/darkroomdevs</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/darkroomdevs/CheckDigitValidator.git</connection>
+        <developerConnection>scm:git:ssh:git@github.com:darkroomdevs/CheckDigitValidator.git</developerConnection>
+        <url>https://github.com/darkroomdevs/CheckDigitValidator</url>
+    </scm>
 
     <dependencies>
         <dependency>
