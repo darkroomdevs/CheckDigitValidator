@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/darkroomdevs/CheckDigitValidator.svg)](https://jitpack.io/#darkroomdevs/CheckDigitValidator)
+
 ### Description
 
 This lib compute the check digit of a sequence through a slightly more complex method thet take the
