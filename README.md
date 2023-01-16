@@ -25,6 +25,7 @@ https://en.wikipedia.org/wiki/Check_digit
   * CNPJ
 * Brazilian Banks
   * Banco do Brasil
+  * Banco Bradesco
 
 ### Use
 
