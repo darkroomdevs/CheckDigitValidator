@@ -29,6 +29,6 @@ class BankAccountBBValidatorTest {
         assertThat(digitValidator.valid(null)).isFalse();
         assertThat(digitValidator.valid("1193615Y")).isFalse();
         assertThat(digitValidator.valid("76502982300")).isFalse();
-        assertThat(digitValidator.valid("11111111111")).isFalse();
+        assertThat(digitValidator.valid("11111111")).isFalse();
     }
 }
