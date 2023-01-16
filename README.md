@@ -23,6 +23,8 @@ https://en.wikipedia.org/wiki/Check_digit
 * Brazilian Documents
   * CPF
   * CNPJ
+* Brazilian Banks
+  * Banco do Brasil
 
 ### Use
 
