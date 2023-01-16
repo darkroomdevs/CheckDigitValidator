@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * This class checks whether a specific string represents a valid bank account number of Banco do Brasil.
  * <p/>
- * Reference: https://www.bb.com.br/docs/pub/emp/empl/dwn/Orientacoes.pdf
+ * Reference: <a href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Orientacoes.pdf">Banco do Brasil Reference</a>
  */
 public final class BankAccountBBValidator implements DigitValidator {
 
