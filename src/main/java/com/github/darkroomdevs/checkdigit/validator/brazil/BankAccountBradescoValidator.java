@@ -9,11 +9,11 @@ import org.apache.commons.lang3.StringUtils;
  * <p/>
  * Reference: <a href="http://hostmarcasite.com.br/fluir/vendor/eduardokum/laravel-boleto/manuais/Regras%20Validacao%20Conta%20Corrente%20VI_EPS.pdf">Banco Bradesco Reference</a>
  */
-public final class BankAccountBBDCValidator implements DigitValidator {
+public final class BankAccountBradescoValidator implements DigitValidator {
 
-    public static final BankAccountBBDCValidator INSTANCE = new BankAccountBBDCValidator();
+    public static final BankAccountBradescoValidator INSTANCE = new BankAccountBradescoValidator();
 
-    private BankAccountBBDCValidator() {
+    private BankAccountBradescoValidator() {
     }
 
     /**

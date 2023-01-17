@@ -6,24 +6,24 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class BankAccountBBDCValidatorTest {
+class BankAccountBradescoValidatorTest {
 
     private DigitValidator digitValidator;
 
     @BeforeEach
     public void setup() {
-        digitValidator = BankAccountBBDCValidator.INSTANCE;
+        digitValidator = BankAccountBradescoValidator.INSTANCE;
     }
 
     @Test
-    void assertThatBBBankAccountIsValid() {
+    void assertThatBradescoBankAccountIsValid() {
         assertThat(digitValidator.valid("301357P")).isTrue();
         assertThat(digitValidator.valid("0558230P")).isTrue();
         assertThat(digitValidator.valid("07112556")).isTrue();
     }
 
     @Test
-    void assertThatBBBankAccountIsInvalid() {
+    void assertThatBradescoBankAccountIsInvalid() {
         assertThat(digitValidator.valid("")).isFalse();
         assertThat(digitValidator.valid("           ")).isFalse();
         assertThat(digitValidator.valid(null)).isFalse();
