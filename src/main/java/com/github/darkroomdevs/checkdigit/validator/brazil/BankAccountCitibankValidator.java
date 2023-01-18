@@ -25,7 +25,7 @@ public final class BankAccountCitibankValidator implements DigitValidator {
     public boolean valid(String bankAccount) {
         if (StringUtils.isBlank(bankAccount)
                 || (StringUtils.length(bankAccount) > 11)
-                || !bankAccount.matches("\\d+")
+                || !bankAccount.matches("\\d{2,}")
                 || bankAccount.matches("0+|1+|2+|3+|4+|5+|6+|7+|8+|9+")) {
             return false;
         }
