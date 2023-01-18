@@ -26,6 +26,7 @@ https://en.wikipedia.org/wiki/Check_digit
 * Brazilian Banks
   * Banco do Brasil
   * Banco Bradesco
+  * Citibank
 
 ### Use
 
