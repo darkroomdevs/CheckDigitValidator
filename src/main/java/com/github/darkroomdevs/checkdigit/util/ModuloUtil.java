@@ -79,4 +79,49 @@ public final class ModuloUtil {
         }
         return weights;
     }
+
+    /**
+     * Calculate the check digit using a pivot as weights
+     *
+     * @param sequence The sequence to compute the check digit.
+     * @param pivot The list of weitghts.
+     * @return The check digit of the specified sequence.
+     */
+    public static Optional<String> computeWithPivot(String sequence, String pivot) {
+        if (StringUtils.isBlank(sequence)) {
+            return Optional.empty();
+        }
+
+        int sum = 0;
+        for (int i = 0; i < sequence.length(); i++) {
+            sum += Integer.parseInt(String.valueOf(sequence.charAt(i)))
+                    * Integer.parseInt(String.valueOf(pivot.charAt(i)));
+        }
+
+        int digit = sum * 10 % 11;
+        if (digit == 10) digit = 0;
+        return Optional.of(String.valueOf(digit));
+    }
+
+    /**
+     * Calculate the check digit using modulo 10 and a pivot as weights disregarding the tens
+     *
+     * @param sequence The sequence to compute the check digit.
+     * @param pivot The list of weitghts.
+     * @return The check digit of the specified sequence.
+     */
+    public static Optional<String> computeModulo10WithPivot(String sequence, String pivot) {
+        if (StringUtils.isBlank(sequence)) {
+            return Optional.empty();
+        }
+
+        int sum = 0;
+        for (int i = 0; i < sequence.length(); i++) {
+            sum += Integer.parseInt(String.valueOf(sequence.charAt(i)))
+                    * Integer.parseInt(String.valueOf(pivot.charAt(i)));
+        }
+
+        int digit = 10 - (sum % 10);
+        return Optional.of(String.valueOf(digit));
+    }
 }
