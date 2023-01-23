@@ -33,7 +33,7 @@ public final class BankAccountCaixaValidator implements DigitValidator {
         String pivot = "876543298765432";
         int bankAccountSize = bankAccount.length();
         char digit = bankAccount.charAt(bankAccountSize - 1);
-        return ModuloUtil.computeWithPivot(bankAccount.substring(0, bankAccountSize - 1), pivot).orElse("")
+        return ModuloUtil.compute(bankAccount.substring(0, bankAccountSize - 1), pivot).orElse("")
                 .equals(String.valueOf(digit));
     }
 }

@@ -59,6 +59,26 @@ public final class ModuloUtil {
         }
 
         List<Integer> weights = generateWeights(maxWeight, minWeight, sequence.length());
+        return compute(sequence, weights);
+    }
+
+    /**
+     * Compute the check digit with weights from {@code pivot}.
+     *
+     * @param sequence The sequence to compute the check digit.
+     * @param pivot List of weights.
+     * @return The check digit of the specified sequence.
+     */
+    public static Optional<String> compute(String sequence, String pivot) {
+        if (StringUtils.isBlank(sequence) || StringUtils.isBlank(pivot)) {
+            return Optional.empty();
+        }
+
+        List<Integer> weights = generateWeights(pivot);
+        return compute(sequence, weights);
+    }
+
+    private static Optional<String> compute(String sequence, List<Integer> weights) {
         int sum = 0;
         for (int i = 0; i < sequence.length(); i++) {
             sum += Integer.parseInt(String.valueOf(sequence.charAt(i)))
@@ -80,27 +100,12 @@ public final class ModuloUtil {
         return weights;
     }
 
-    /**
-     * Calculate the check digit using a pivot as weights
-     *
-     * @param sequence The sequence to compute the check digit.
-     * @param pivot The list of weitghts.
-     * @return The check digit of the specified sequence.
-     */
-    public static Optional<String> computeWithPivot(String sequence, String pivot) {
-        if (StringUtils.isBlank(sequence)) {
-            return Optional.empty();
+    private static List<Integer> generateWeights(String pivot) {
+        List<Integer> weights = new ArrayList<>();
+        for (int i = 0; i < pivot.length(); i++) {
+            weights.add(Integer.parseInt(String.valueOf(pivot.charAt(i))));
         }
-
-        int sum = 0;
-        for (int i = 0; i < sequence.length(); i++) {
-            sum += Integer.parseInt(String.valueOf(sequence.charAt(i)))
-                    * Integer.parseInt(String.valueOf(pivot.charAt(i)));
-        }
-
-        int digit = sum * 10 % 11;
-        if (digit == 10) digit = 0;
-        return Optional.of(String.valueOf(digit));
+        return weights;
     }
 
     /**
