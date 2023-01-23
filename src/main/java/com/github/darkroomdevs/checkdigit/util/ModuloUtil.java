@@ -21,6 +21,9 @@ import org.apache.commons.lang3.StringUtils;
  */
 public final class ModuloUtil {
 
+    public static final int MOD10 = 10;
+    public static final int MOD11 = 11;
+
     private ModuloUtil() {
     }
 
@@ -54,12 +57,25 @@ public final class ModuloUtil {
      * @return The check digit of the specified sequence.
      */
     public static Optional<String> compute(String sequence, int maxWeight, int minWeight) {
+        return compute(sequence, MOD11, maxWeight, minWeight);
+    }
+
+    /**
+     * Compute the check digit with weights from {@code minWeight} to {@code maxWeight} (increment by 1).
+     *
+     * @param sequence The sequence to compute the check digit.
+     * @param mod Type of the module.
+     * @param maxWeight The maximum weight.
+     * @param minWeight The minimum weight.
+     * @return The check digit of the specified sequence.
+     */
+    public static Optional<String> compute(String sequence, int mod, int maxWeight, int minWeight) {
         if (StringUtils.isBlank(sequence) || maxWeight < 3) {
             return Optional.empty();
         }
 
         List<Integer> weights = generateWeights(maxWeight, minWeight, sequence.length());
-        return compute(sequence, weights);
+        return compute(sequence, mod, weights);
     }
 
     /**
@@ -70,22 +86,40 @@ public final class ModuloUtil {
      * @return The check digit of the specified sequence.
      */
     public static Optional<String> compute(String sequence, String pivot) {
+        return compute(sequence, MOD11, pivot);
+    }
+
+    /**
+     * Compute the check digit with weights from {@code pivot}.
+     *
+     * @param sequence The sequence to compute the check digit.
+     * @param mod Type of the module.
+     * @param pivot List of weights.
+     * @return The check digit of the specified sequence.
+     */
+    public static Optional<String> compute(String sequence, int mod, String pivot) {
         if (StringUtils.isBlank(sequence) || StringUtils.isBlank(pivot)) {
             return Optional.empty();
         }
 
         List<Integer> weights = generateWeights(pivot);
-        return compute(sequence, weights);
+        return compute(sequence, mod, weights);
     }
 
-    private static Optional<String> compute(String sequence, List<Integer> weights) {
+    private static Optional<String> compute(String sequence, int mod, List<Integer> weights) {
         int sum = 0;
         for (int i = 0; i < sequence.length(); i++) {
             sum += Integer.parseInt(String.valueOf(sequence.charAt(i)))
                     * Integer.parseInt(String.valueOf(weights.get(i)));
         }
 
-        int digit = sum * 10 % 11;
+        return generateDV(sum, mod);
+    }
+
+    private static Optional<String> generateDV(int sum, int mod) {
+        int digit;
+        if (mod == MOD11) digit = sum * 10 % 11;
+        else digit = 10 - (sum % 10);
         if (digit == 10) digit = 0;
         return Optional.of(String.valueOf(digit));
     }
@@ -106,27 +140,5 @@ public final class ModuloUtil {
             weights.add(Integer.parseInt(String.valueOf(pivot.charAt(i))));
         }
         return weights;
-    }
-
-    /**
-     * Calculate the check digit using modulo 10 and a pivot as weights disregarding the tens
-     *
-     * @param sequence The sequence to compute the check digit.
-     * @param pivot The list of weitghts.
-     * @return The check digit of the specified sequence.
-     */
-    public static Optional<String> computeModulo10WithPivot(String sequence, String pivot) {
-        if (StringUtils.isBlank(sequence)) {
-            return Optional.empty();
-        }
-
-        int sum = 0;
-        for (int i = 0; i < sequence.length(); i++) {
-            sum += Integer.parseInt(String.valueOf(sequence.charAt(i)))
-                    * Integer.parseInt(String.valueOf(pivot.charAt(i)));
-        }
-
-        int digit = 10 - (sum % 10);
-        return Optional.of(String.valueOf(digit));
     }
 }

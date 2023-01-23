@@ -16,14 +16,14 @@ class BankAccountBanrisulValidatorTest {
     }
 
     @Test
-    void assertThatCitibankBankAccountIsValid() {
+    void assertThatBanrisulBankAccountIsValid() {
         assertThat(digitValidator.valid("3585076718")).isTrue();
         assertThat(digitValidator.valid("3518223725")).isTrue();
         //assertThat(digitValidator.valid("40168518511")).isTrue();
     }
 
     @Test
-    void assertThatCitibankBankAccountIsInvalid() {
+    void assertThatBarinsulBankAccountIsInvalid() {
         assertThat(digitValidator.valid("")).isFalse();
         assertThat(digitValidator.valid("           ")).isFalse();
         assertThat(digitValidator.valid(null)).isFalse();

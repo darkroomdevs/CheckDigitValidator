@@ -33,7 +33,7 @@ public final class BankAccountSantanderValidator implements DigitValidator {
         String pivot = "97310097131973";
         int bankAccountSize = bankAccount.length();
         char digit = bankAccount.charAt(bankAccountSize - 1);
-        return ModuloUtil.computeModulo10WithPivot(bankAccount.substring(0, bankAccountSize - 1), pivot).orElse("")
+        return ModuloUtil.compute(bankAccount.substring(0, bankAccountSize - 1), ModuloUtil.MOD10, pivot).orElse("")
                 .equals(String.valueOf(digit));
     }
 }
