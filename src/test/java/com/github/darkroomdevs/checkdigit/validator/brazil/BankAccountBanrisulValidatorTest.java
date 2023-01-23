@@ -6,29 +6,29 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class BankAccountCitibankValidatorTest {
+class BankAccountBanrisulValidatorTest {
 
     private DigitValidator digitValidator;
 
     @BeforeEach
     public void setup() {
-        digitValidator = BankAccountCitibankValidator.INSTANCE;
+        digitValidator = BankAccountBanrisulValidator.INSTANCE;
     }
 
     @Test
-    void assertThatCitibankBankAccountIsValid() {
-        assertThat(digitValidator.valid("97757898994")).isTrue();
-        assertThat(digitValidator.valid("49709956515")).isTrue();
-        assertThat(digitValidator.valid("40168518511")).isTrue();
+    void assertThatBanrisulBankAccountIsValid() {
+        assertThat(digitValidator.valid("3585076718")).isTrue();
+        assertThat(digitValidator.valid("3518223725")).isTrue();
+        //assertThat(digitValidator.valid("40168518511")).isTrue();
     }
 
     @Test
-    void assertThatCitibankBankAccountIsInvalid() {
+    void assertThatBarinsulBankAccountIsInvalid() {
         assertThat(digitValidator.valid("")).isFalse();
         assertThat(digitValidator.valid("           ")).isFalse();
         assertThat(digitValidator.valid(null)).isFalse();
         assertThat(digitValidator.valid("1193615Y")).isFalse();
-        assertThat(digitValidator.valid("76502982300")).isFalse();
+        assertThat(digitValidator.valid("7650298230013")).isFalse();
         assertThat(digitValidator.valid("11111111")).isFalse();
     }
 }

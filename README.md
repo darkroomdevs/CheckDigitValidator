@@ -27,6 +27,9 @@ https://en.wikipedia.org/wiki/Check_digit
   * Banco do Brasil
   * Banco Bradesco
   * Citibank
+  * Caixa Econômica Federal
+  * Banco Santander
+  * Banco Banrisul
 
 ### Use
 
