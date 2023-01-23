@@ -109,8 +109,7 @@ public final class ModuloUtil {
     private static Optional<String> compute(String sequence, int mod, List<Integer> weights) {
         int sum = 0;
         for (int i = 0; i < sequence.length(); i++) {
-            sum += Integer.parseInt(String.valueOf(sequence.charAt(i)))
-                    * Integer.parseInt(String.valueOf(weights.get(i)));
+            sum += Integer.parseInt(String.valueOf(sequence.charAt(i))) * weights.get(i);
         }
 
         return generateDV(sum, mod);
