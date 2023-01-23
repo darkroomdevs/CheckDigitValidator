@@ -120,6 +120,7 @@ public final class ModuloUtil {
         int digit;
         if (mod == MOD11) digit = sum * 10 % 11;
         else digit = 10 - (sum % 10);
+
         if (digit == 10) digit = 0;
         return Optional.of(String.valueOf(digit));
     }
@@ -131,6 +132,7 @@ public final class ModuloUtil {
             if (weight > maxWeight) weight = weight % maxWeight + 1;
             weights.add(0, weight);
         }
+
         return weights;
     }
 
@@ -139,6 +141,7 @@ public final class ModuloUtil {
         for (int i = 0; i < pivot.length(); i++) {
             weights.add(Integer.parseInt(String.valueOf(pivot.charAt(i))));
         }
+
         return weights;
     }
 }
