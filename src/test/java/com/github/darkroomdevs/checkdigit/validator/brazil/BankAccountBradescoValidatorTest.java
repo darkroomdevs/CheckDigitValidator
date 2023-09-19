@@ -20,6 +20,9 @@ class BankAccountBradescoValidatorTest {
         assertThat(digitValidator.valid("301357P")).isTrue();
         assertThat(digitValidator.valid("0558230P")).isTrue();
         assertThat(digitValidator.valid("07112556")).isTrue();
+        assertThat(digitValidator.valid("02380692")).isTrue();
+        assertThat(digitValidator.valid("1543578P")).isTrue();
+        assertThat(digitValidator.valid("10047722")).isTrue();
     }
 
     @Test
