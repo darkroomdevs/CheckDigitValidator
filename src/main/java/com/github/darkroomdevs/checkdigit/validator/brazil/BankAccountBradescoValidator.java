@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * This class checks whether a specific string represents a valid bank account number of Banco Bradesco
  * <p/>
- * Reference: <a href="http://hostmarcasite.com.br/fluir/vendor/eduardokum/laravel-boleto/manuais/Regras%20Validacao%20Conta%20Corrente%20VI_EPS.pdf">Banco Bradesco Reference</a>
+ * Reference: <a href="https://banco.bradesco/assets/pessoajuridica/pdf/mpo_arquivos_layout_400P.pdf">Banco Bradesco Reference</a>
  */
 public final class BankAccountBradescoValidator implements DigitValidator {
 
