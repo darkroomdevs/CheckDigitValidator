@@ -115,22 +115,6 @@ public final class ModuloUtil {
         return generateDV(sum, mod);
     }
 
-    /**
-     * Calculates the weighted sum of a sequence of digits using the given pivot weights.
-     *
-     * @param sequence The input sequence of digits as a string.
-     * @param pivot    The pivot weights as a string.
-     * @return The weighted sum of the sequence.
-     */
-    public static Integer generateSum(String sequence, String pivot) {
-        List<Integer> weights = generateWeights(pivot);
-        int sum = 0;
-        for (int i = 0; i < sequence.length(); i++) {
-            sum += (char) (Integer.parseInt(String.valueOf(sequence.charAt(i))) * weights.get(i));
-        }
-        return sum;
-    }
-
     private static Optional<String> generateDV(int sum, int mod) {
         int digit;
         if (mod == MOD11) digit = sum * 10 % 11;
