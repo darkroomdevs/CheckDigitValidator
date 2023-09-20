@@ -8,7 +8,7 @@
 
     <groupId>com.github.darkroomdevs</groupId>
     <artifactId>CheckDigitValidator</artifactId>
-    <version>0.2.0-SNAPSHOT</version>
+    <version>0.3.0</version>
     <packaging>jar</packaging>
 
     <name>CheckDigitValidator</name>
