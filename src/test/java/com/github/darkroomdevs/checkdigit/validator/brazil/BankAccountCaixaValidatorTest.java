@@ -19,6 +19,7 @@ class BankAccountCaixaValidatorTest {
     void assertThatCaixaBankAccountIsValid() {
         assertThat(digitValidator.valid("2004001000004486")).isTrue();
         assertThat(digitValidator.valid("0246022518435198")).isTrue();
+        assertThat(digitValidator.valid("1383001000069978")).isTrue();
     }
 
     @Test

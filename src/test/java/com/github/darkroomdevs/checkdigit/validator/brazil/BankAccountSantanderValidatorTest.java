@@ -20,6 +20,7 @@ class BankAccountSantanderValidatorTest {
         assertThat(digitValidator.valid("018900010174179")).isTrue();
         assertThat(digitValidator.valid("091900135148317")).isTrue();
         assertThat(digitValidator.valid("038200139514923")).isTrue();
+        assertThat(digitValidator.valid("467000010104146")).isTrue();
     }
 
     @Test
