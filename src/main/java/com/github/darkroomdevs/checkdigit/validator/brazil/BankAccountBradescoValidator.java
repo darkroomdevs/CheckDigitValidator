@@ -30,9 +30,10 @@ public final class BankAccountBradescoValidator implements DigitValidator {
             return false;
         }
 
+        String pivot = "2765432";
         int bankAccountSize = bankAccount.length();
         char digit = bankAccount.charAt(bankAccountSize - 1);
-        return ModuloUtil.compute(bankAccount.substring(0, bankAccountSize - 1), bankAccountSize + 1).orElse("")
+        return ModuloUtil.compute(StringUtils.leftPad(bankAccount.substring(0, bankAccountSize - 1), 7, "0"), pivot).orElse("")
                 .equals(String.valueOf(digit == 'P' ? '0' : digit));
     }
 }
