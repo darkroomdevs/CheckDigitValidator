@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * This class checks whether a specific string represents a valid bank account number of Banco Bradesco
  * <p/>
- * Reference: <a href="https://banco.bradesco/assets/pessoajuridica/pdf/mpo_arquivos_layout_400P.pdf">Banco Bradesco Reference</a>
+ * Reference: <a href="http://hostmarcasite.com.br/fluir/vendor/eduardokum/laravel-boleto/manuais/Regras%20Validacao%20Conta%20Corrente%20VI_EPS.pdf">Banco Bradesco Reference</a>
  */
 public final class BankAccountBradescoValidator implements DigitValidator {
 
@@ -32,9 +32,7 @@ public final class BankAccountBradescoValidator implements DigitValidator {
 
         int bankAccountSize = bankAccount.length();
         char digit = bankAccount.charAt(bankAccountSize - 1);
-        String pivot = "2765432";
-        int rest = ModuloUtil.generateSum(StringUtils.leftPad(bankAccount.substring(0, bankAccountSize - 1), 7, "0"), pivot) % 11;
-        char expectDigit = (rest == 0) ? '0' : (rest == 1) ? 'P' : Character.forDigit(11 - rest, 10);
-        return digit == expectDigit;
+        return ModuloUtil.compute(bankAccount.substring(0, bankAccountSize - 1), bankAccountSize + 1).orElse("")
+                .equals(String.valueOf(digit == 'P' ? '0' : digit));
     }
 }
