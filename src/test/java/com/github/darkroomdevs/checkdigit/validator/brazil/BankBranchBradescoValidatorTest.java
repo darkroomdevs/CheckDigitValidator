@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class BankAgencyBradescoValidatorTest {
+class BankBranchBradescoValidatorTest {
 
     private DigitValidator digitValidator;
 
     @BeforeEach
     public void setup() {
-        digitValidator = BankAgencyBradescoValidator.INSTANCE;
+        digitValidator = BankBranchBradescoValidator.INSTANCE;
     }
 
     @Test
