@@ -17,7 +17,7 @@ public final class BankBranchBradescoValidator implements DigitValidator {
     }
 
     /**
-     * Checks whether the specified string represents a valid bank agency number of Banco Bradesco
+     * Checks whether the specified string represents a valid bank branch number of Banco Bradesco
      *
      * @param bankBranch The sequence to verify.
      * @return {@code true} if the sequence is a valid bank account number; {@code false} otherwise.

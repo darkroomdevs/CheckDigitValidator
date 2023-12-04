@@ -17,7 +17,7 @@ public final class BankBranchBBValidator implements DigitValidator {
     }
 
     /**
-     * Checks whether the specified string represents a valid agency and bank account number of Banco do Brasil.
+     * Checks whether the specified string represents a valid branch and bank account number of Banco do Brasil.
      *
      * @param bankBranch The sequence to verify.
      * @return {@code true} if the sequence is a valid bank account number; {@code false} otherwise.
