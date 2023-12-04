@@ -17,7 +17,7 @@ public final class BankAccountCaixaValidator implements DigitValidator {
     }
 
     /**
-     * Checks whether the specified string represents a valid agency and bank account number of Banco Caixa Economica Federal
+     * Checks whether the specified string represents a valid branch and bank account number of Banco Caixa Economica Federal
      *
      * @param bankAccount The sequence to verify.
      * @return {@code true} if the sequence is a valid bank account number; {@code false} otherwise.

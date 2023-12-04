@@ -17,7 +17,7 @@ public final class BankAccountBanrisulValidator implements DigitValidator {
     }
 
     /**
-     * Checks whether the specified string represents a valid agency and bank account number of Banco Banrisul
+     * Checks whether the specified string represents a valid branch and bank account number of Banco Banrisul
      *
      * @param bankAccount The sequence to verify.
      * @return {@code true} if the sequence is a valid bank account number; {@code false} otherwise.
