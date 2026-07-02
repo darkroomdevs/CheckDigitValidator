@@ -27,6 +27,6 @@ public final class PisValidator implements DigitValidator {
             return false;
         }
 
-        return ModuloUtil.compute(pis.substring(0, 10), 11).orElse("").equals(String.valueOf(pis.charAt(10)));
+        return ModuloUtil.compute(pis.substring(0, 10), 9).orElse("").equals(String.valueOf(pis.charAt(10)));
     }
 }

@@ -48,6 +48,6 @@ https://en.wikipedia.org/wiki/Check_digit
 <dependency>
     <groupId>com.github.darkroomdevs</groupId>
     <artifactId>CheckDigitValidator</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
