@@ -30,4 +30,14 @@ class CnpjValidatorTest {
         assertThat(digitValidator.valid("67328780000104")).isFalse();
         assertThat(digitValidator.valid("11111111111111")).isFalse();
     }
+
+    @Test
+    public void assertThatAlphaCNPJIsValid() {
+        assertThat(digitValidator.valid("12ABC34501DE35")).isTrue();
+    }
+
+    @Test
+    public void assertThatAlphaCNPJIsInvalid() {
+        assertThat(digitValidator.valid("12ABC345DE6735")).isFalse();
+    }
 }

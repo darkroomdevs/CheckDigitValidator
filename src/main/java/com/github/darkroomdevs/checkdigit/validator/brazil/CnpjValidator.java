@@ -24,7 +24,7 @@ public final class CnpjValidator implements DigitValidator {
      */
     @Override
     public boolean valid(String cnpj) {
-        if (StringUtils.length(cnpj) != 14 || !cnpj.matches("\\d+")) {
+        if (StringUtils.length(cnpj) != 14 || !cnpj.matches("[0-9A-Z]{12}\\d{2}")) {
             return false;
         }
 

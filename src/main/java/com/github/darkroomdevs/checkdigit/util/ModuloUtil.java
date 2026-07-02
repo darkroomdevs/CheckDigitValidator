@@ -28,7 +28,7 @@ public final class ModuloUtil {
     }
 
     /**
-     * Compute the check digit with weights of 2, 3, 4, 5, 6, 7, 8, 9 and 10.
+     * Compute the check digit with weights of 2, 3, 4, 5, 6, 7, 8, 9, and 10.
      *
      * @param sequence The sequence to compute the check digit.
      * @return The check digit of the specified sequence.
@@ -109,7 +109,7 @@ public final class ModuloUtil {
     private static Optional<String> compute(String sequence, int mod, List<Integer> weights) {
         int sum = 0;
         for (int i = 0; i < sequence.length(); i++) {
-            sum += Integer.parseInt(String.valueOf(sequence.charAt(i))) * weights.get(i);
+            sum += convertASCIIValue(sequence.charAt(i)) * weights.get(i);
         }
 
         return generateDV(sum, mod);
@@ -129,7 +129,7 @@ public final class ModuloUtil {
         for (int i = 0; i < size; i++) {
             int weight = i + minWeight;
             if (weight > maxWeight) weight = weight % maxWeight + 1;
-            weights.add(0, weight);
+            weights.addFirst(weight);
         }
 
         return weights;
@@ -142,5 +142,9 @@ public final class ModuloUtil {
         }
 
         return weights;
+    }
+
+    private static int convertASCIIValue(char ascii) {
+        return ascii - '0';
     }
 }
