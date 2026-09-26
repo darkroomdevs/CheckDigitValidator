@@ -1,6 +1,5 @@
 package com.github.darkroomdevs.checkdigit.validator.brazil;
 
-import com.github.darkroomdevs.checkdigit.util.ModuloUtil;
 import com.github.darkroomdevs.checkdigit.validator.DigitValidator;
 import org.apache.commons.lang3.StringUtils;
 
@@ -33,7 +32,13 @@ public final class BankAccountBanrisulValidator implements DigitValidator {
         String pivot = "324765432";
         int bankAccountSize = bankAccount.length();
         char digit = bankAccount.charAt(bankAccountSize - 1);
-        return ModuloUtil.compute(bankAccount.substring(0, bankAccountSize - 1), pivot).orElse("")
-                .equals(String.valueOf(digit == '6' ? '1' : digit));
+        String body = bankAccount.substring(0, bankAccountSize - 1);
+        int sum = 0;
+        for (int i = 0; i < body.length(); i++) {
+            sum += (body.charAt(i) - '0') * (pivot.charAt(i) - '0');
+        }
+        int resto = sum % 11;
+        char expected = resto == 0 ? '0' : resto == 1 ? '6' : (char) ('0' + (11 - resto));
+        return digit == expected;
     }
 }
