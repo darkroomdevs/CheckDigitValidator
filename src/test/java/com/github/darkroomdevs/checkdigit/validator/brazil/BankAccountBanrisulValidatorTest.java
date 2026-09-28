@@ -20,6 +20,7 @@ class BankAccountBanrisulValidatorTest {
         assertThat(digitValidator.valid("3585076718")).isTrue();
         assertThat(digitValidator.valid("3518223725")).isTrue();
         assertThat(digitValidator.valid("4016518511")).isTrue();
+        assertThat(digitValidator.valid("0000000066")).isTrue();
     }
 
     @Test
@@ -30,5 +31,7 @@ class BankAccountBanrisulValidatorTest {
         assertThat(digitValidator.valid("1193615Y")).isFalse();
         assertThat(digitValidator.valid("7650298230013")).isFalse();
         assertThat(digitValidator.valid("11111111")).isFalse();
+        assertThat(digitValidator.valid("4016518516")).isFalse();
+        assertThat(digitValidator.valid("0000000060")).isFalse();
     }
 }

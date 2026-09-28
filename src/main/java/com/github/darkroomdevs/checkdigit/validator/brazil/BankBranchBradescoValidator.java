@@ -13,6 +13,9 @@ public final class BankBranchBradescoValidator implements DigitValidator {
 
     public static final BankBranchBradescoValidator INSTANCE = new BankBranchBradescoValidator();
 
+    private static final char REPLACEABLE = '0';
+    private static final char SPECIAL = 'P';
+
     private BankBranchBradescoValidator() {
     }
 
@@ -33,6 +36,6 @@ public final class BankBranchBradescoValidator implements DigitValidator {
         int bankBranchSize = bankBranch.length();
         char digit = bankBranch.charAt(bankBranchSize - 1);
         return ModuloUtil.compute(StringUtils.leftPad(bankBranch.substring(0, bankBranchSize - 1), 7, "0")).orElse("")
-                .equals(String.valueOf(digit == 'P' ? '0' : digit));
+                .equals(String.valueOf(digit == SPECIAL ? REPLACEABLE : digit));
     }
 }

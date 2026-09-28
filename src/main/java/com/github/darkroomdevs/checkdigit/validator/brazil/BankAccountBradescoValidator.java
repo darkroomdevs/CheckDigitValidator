@@ -13,6 +13,9 @@ public final class BankAccountBradescoValidator implements DigitValidator {
 
     public static final BankAccountBradescoValidator INSTANCE = new BankAccountBradescoValidator();
 
+    private static final char REPLACEABLE = '0';
+    private static final char SPECIAL = 'P';
+
     private BankAccountBradescoValidator() {
     }
 
@@ -33,7 +36,8 @@ public final class BankAccountBradescoValidator implements DigitValidator {
         String pivot = "2765432";
         int bankAccountSize = bankAccount.length();
         char digit = bankAccount.charAt(bankAccountSize - 1);
-        return ModuloUtil.compute(StringUtils.leftPad(bankAccount.substring(0, bankAccountSize - 1), 7, "0"), pivot).orElse("")
-                .equals(String.valueOf(digit == 'P' ? '0' : digit));
+        return digit != REPLACEABLE
+                && ModuloUtil.compute(StringUtils.leftPad(bankAccount.substring(0, bankAccountSize - 1), 7, "0"), pivot).orElse("")
+                .equals(String.valueOf(digit == SPECIAL ? REPLACEABLE : digit));
     }
 }

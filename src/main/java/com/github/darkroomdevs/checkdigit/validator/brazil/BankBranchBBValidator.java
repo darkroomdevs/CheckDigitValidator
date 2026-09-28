@@ -13,6 +13,9 @@ public final class BankBranchBBValidator implements DigitValidator {
 
     public static final BankBranchBBValidator INSTANCE = new BankBranchBBValidator();
 
+    private static final char REPLACEABLE = '0';
+    private static final char SPECIAL = 'X';
+
     private BankBranchBBValidator() {
     }
 
@@ -33,6 +36,6 @@ public final class BankBranchBBValidator implements DigitValidator {
         int bankBranchSize = bankBranch.length();
         char digit = bankBranch.charAt(bankBranchSize - 1);
         return ModuloUtil.compute(bankBranch.substring(0, bankBranchSize - 1)).orElse("")
-                .equals(String.valueOf(digit));
+                .equals(String.valueOf(digit == SPECIAL ? REPLACEABLE : digit));
     }
 }

@@ -16,7 +16,7 @@ class BankBranchBBValidatorTest {
     }
 
     @Test
-    void assertThatBanrisulBankAccountIsValid() {
+    void assertThatBBBankBranchtIsValid() {
         assertThat(digitValidator.valid("15849")).isTrue();
         assertThat(digitValidator.valid("29025")).isTrue();
         assertThat(digitValidator.valid("57401")).isTrue();
@@ -24,7 +24,7 @@ class BankBranchBBValidatorTest {
     }
 
     @Test
-    void assertThatBarinsulBankAccountIsInvalid() {
+    void assertThatBBBankBranchIsInvalid() {
         assertThat(digitValidator.valid("")).isFalse();
         assertThat(digitValidator.valid("           ")).isFalse();
         assertThat(digitValidator.valid(null)).isFalse();

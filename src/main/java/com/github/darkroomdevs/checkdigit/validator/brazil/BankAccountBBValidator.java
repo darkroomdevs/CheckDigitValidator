@@ -13,6 +13,9 @@ public final class BankAccountBBValidator implements DigitValidator {
 
     public static final BankAccountBBValidator INSTANCE = new BankAccountBBValidator();
 
+    private static final char REPLACEABLE = '0';
+    private static final char SPECIAL = 'X';
+
     private BankAccountBBValidator() {
     }
 
@@ -32,7 +35,8 @@ public final class BankAccountBBValidator implements DigitValidator {
 
         int bankAccountSize = bankAccount.length();
         char digit = bankAccount.charAt(bankAccountSize - 1);
-        return ModuloUtil.compute(bankAccount.substring(0, bankAccountSize - 1), bankAccountSize + 1).orElse("")
-                .equals(String.valueOf(digit == 'X' ? '0' : digit));
+        return digit != REPLACEABLE
+                && ModuloUtil.compute(bankAccount.substring(0, bankAccountSize - 1), bankAccountSize + 1).orElse("")
+                .equals(String.valueOf(digit == SPECIAL ? REPLACEABLE : digit));
     }
 }

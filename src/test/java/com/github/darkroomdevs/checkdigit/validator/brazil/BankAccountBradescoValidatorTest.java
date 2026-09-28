@@ -33,5 +33,6 @@ class BankAccountBradescoValidatorTest {
         assertThat(digitValidator.valid("1193615Y")).isFalse();
         assertThat(digitValidator.valid("76502982300")).isFalse();
         assertThat(digitValidator.valid("11111111")).isFalse();
+        assertThat(digitValidator.valid("15435780")).isFalse();
     }
 }

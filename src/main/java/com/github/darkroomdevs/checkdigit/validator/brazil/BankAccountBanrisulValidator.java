@@ -13,6 +13,9 @@ public final class BankAccountBanrisulValidator implements DigitValidator {
 
     public static final BankAccountBanrisulValidator INSTANCE = new BankAccountBanrisulValidator();
 
+    private static final char REPLACEABLE = '0';
+    private static final char SPECIAL = '6';
+
     private BankAccountBanrisulValidator() {
     }
 
@@ -24,7 +27,7 @@ public final class BankAccountBanrisulValidator implements DigitValidator {
      */
     public boolean valid(String bankAccount) {
         if (StringUtils.isBlank(bankAccount)
-                || (StringUtils.length(bankAccount) > 11)
+                || (StringUtils.length(bankAccount) > 10)
                 || !bankAccount.matches("\\d{2,}")
                 || bankAccount.matches("0+|1+|2+|3+|4+|5+|6+|7+|8+|9+")) {
             return false;
@@ -33,7 +36,8 @@ public final class BankAccountBanrisulValidator implements DigitValidator {
         String pivot = "324765432";
         int bankAccountSize = bankAccount.length();
         char digit = bankAccount.charAt(bankAccountSize - 1);
-        return ModuloUtil.compute(bankAccount.substring(0, bankAccountSize - 1), pivot).orElse("")
-                .equals(String.valueOf(digit == '6' ? '1' : digit));
+        return digit != REPLACEABLE
+                && ModuloUtil.compute(bankAccount.substring(0, bankAccountSize - 1), pivot).orElse("")
+                .equals(String.valueOf(digit == SPECIAL ? REPLACEABLE : digit));
     }
 }
